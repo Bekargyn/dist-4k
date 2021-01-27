@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Webpack App</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="fonts/styles.css">
+    <link rel="stylesheet" href="css/slick.min.css">
+    <script>
+      //$effect can be = linear, easeInQuad, easeOutQuad, easeInOutQuad, easeInCubic, easeOutCubic, easeInOutCubic, easeInQuart, easeOutQuart, easeInOutQuart, easeInQuint, easeOutQuint, easeInOutQuint, BezierEasing;
+      var $effect = "BezierEasing";
+      var $defaultOutAnime = 1.5; // in Seconds
+      var $biezeProgress = [0.16, .48, .09, 1];// only when  $effect = "BezierEasing";
+    </script>
+    <script src="js/jquery.js"></script>
+    <script src="js/pixi.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/easyinout.js"></script>
+  </head>
+  <body>
+  
+  <div id="mainBody">
+    <!--<div id="canvasBox"></div>-->
+    <!--Video Slider-->
+    <div class="shadow">
+  
+    </div>
+    <div id="videoSlider">
+      <!--Slide-->
+      <div class="slide">
+        <div class="wrap">
+          <video loop muted class="videobg">
+            <source src="assets/appirio.mp4" type="video/mp4">
+            <source src="assets/appirio.webm" type="video/webm">
+            Your browser does not support the video tag. I suggest you upgrade your browser.
+          </video>
+        </div>
+      </div>
+      <!--Slide-->
+      <div class="slide">
+        <div class="wrap">
+          <video loop muted class="videobg">
+            <source src="assets/appirio2.mp4" type="video/mp4">
+            <source src="assets/appirio2.webm" type="video/webm">
+            Your browser does not support the video tag. I suggest you upgrade your browser.
+          </video>
+        </div>
+      </div>
+      <!--Slide-->
+      <div class="slide">
+        <div class="wrap">
+          <video loop muted class="videobg">
+            <source src="assets/appirio3.mp4" type="video/mp4">
+            <source src="assets/appirio3.webm" type="video/webm">
+            Your browser does not support the video tag. I suggest you upgrade your browser.
+          </video>
+        </div>
+      </div>
+    </div>
+  
+  
+    <!--Menu-->
+    <div id="menuBox">
+      <div class="hidden nextButton" onclick="goToElement('next')"></div>
+      <nav class="navLeft videoMenu">
+        <a data-ctid="1">WORKER</a>
+        <a data-ctid="2">ENGAGED</a>
+        <a data-ctid="3">PRODUCTIVE</a>
+        <a data-ctid="4">AGILE</a>
+      </nav>
+      <nav class="navRight videoMenu">
+        <a data-ctid="5">CUSTOMER</a>
+        <a data-ctid="6">AWARE</a>
+        <a data-ctid="7">SATISFIED</a>
+        <a data-ctid="8">AMPLIFIED</a>
+      </nav>
+      <div class="buttonsContainer"><!----------Dots------------->
+      <div class="dots"></div>
+      <!--HomeButton-->
+      <div class="upButton" onclick="goToElement(0);"></div></div>
+      <!--scrollIcon-->
+      <div onclick="goToElement('next')" class="scrollIcon scrollAnima amateAppend">
+        <span></span>
+      </div>
+      
+    </div>
+    
+    <div id="canvasBox">
+    
+    </div>
+    
+    <!--Content Slider-->
+    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <div id="contentSlider">
+      
+      
+      <!--=========Intro===========-->
+      <div data-id="0"  class="content" video="0"
+           data-crclX="0.5" data-crclY="0.5" data-crclR="250" data-crclRs="60">
+        <div class="textCenter">
+          <div class="anime mainLogo">
+            <img class="arrowLogo" src="img/logos/chart-icons.svg" alt=""> <br>
+            VIRTUOUS CYCLE</div>
+          <div trdl="0.2s" class="anime subLogo">GROWTH & PROFITABILITY</div>
+          <div class="subSlide anime">
+            Happy workers make happy customers. And happy customers make happy workers. It’s a Virtuous Cycle that drives growth and profits.
+          </div>
+        </div>
+      </div>
+      <!--=========Worker Experience===========-->
+      <div data-id="1" class="content"  video="1"
+      data-crclX="0.5" data-crclY="0.5" data-crclR="450" data-crclRs="165">
+        <div class="textCenter">
+          <div class="anime regularTitle">
+            <img class="arrowLogo" src="img/logos/chart-icons.svg" alt=""> <br>
+            Worker Experience</div>
+          <div trdl="0.2s" class="anime">Finding, hiring and retaining talent is more challenging than ever. 36% of employers are reporting a shortage in talent. (ManPower Group) So how do you provide a great Worker Experience?</div>
+        </div>
+      </div>
+      <!--=========Engaged p1===========-->
+      <div data-id="2" class="content" video="1"
+           data-crclX="0.75" data-crclY=".2" data-crclR="450" data-crclRs="140">
+        <div class="textCenter">&nbsp;
+          <div class="floatingNumer leftBottom">
+            <div class="number anime">26<span>%</span></div>
+            <p trdl="0.2s"  class="anime">Greater annual increase in revenue. (Aberdeen Group)</p>
+          </div>
+          <div class="floatingNumer rightTop">
+            <div class="number anime">233<span>%</span></div>
+            <p trdl="0.2s"  class="anime">Greater customer loyalty with engaged workers</p>
+          </div>
+        </div>
+      </div>
+      <!--=========Engaged p2===========-->
+      <div data-id="2" class="content" video="1"
+           data-crclX="0.75" data-crclY=".2" data-crclR="450" data-crclRs="140">
+        <div class="textCenter">&nbsp;
+          <div class="anime">
+            The Travel Corp cut paperwork and engaged their guides with a mobile app built on the Salesforce platform.
+            They saved £3M and provided better worker and customer experiences.
+          </div>
+        </div>
+      </div>
+      <!--=========Productive p1===========-->
+      <div data-id="3" class="content" video="1"
+           data-crclX="0.75" data-crclY=".2" data-crclR="450" data-crclRs="140">
+        <div class="textCenter">&nbsp;
+          <div class="floatingNumer leftCenter">
+            <div class="number anime">28<span>%</span></div>
+            <p trdl="0.2s"  class="anime">Average workers spend 28% of their time managing email.</p>
+          </div>
+        </div>
+      </div>
+      <!--=========Productive p2===========-->
+      <div data-id="3" class="content" video="1"
+           data-crclX="0.75" data-crclY=".2" data-crclR="450" data-crclRs="140">
+        <div class="followCircle"><img  trdl="0.3s" style="width: 418px; height: 74px;" class="anime" src="img/logos/7eleven-logo.svg" alt="7eleven"></div>
+        <div class="textCenter">&nbsp;
+          <div class="floatingNumer leftBottom">
+            <p trdl="0.2s"  class="anime">7-Eleven built a Salesforce app to better collect and share data and insights with their 9,000 North American franchise locations.</p>
+          </div>
+        </div>
+      </div>
+      <!--=========Agile p1===========-->
+      <div data-id="4" class="content" video="1"
+           data-crclX="0.75" data-crclY=".2" data-crclR="450" data-crclRs="140">
+        <div class="textCenter">&nbsp;
+          <div class="floatingNumer leftBottom">
+            <!--<div class="number anime">28<span>%</span></div>-->
+            <p trdl="0.2s"  class="anime">Organizational agility is strongly correlated with customer experience.</p>
+          </div>
+        </div>
+      </div>
+      <!--=========Agile p2===========-->
+      <div data-id="4" class="content" video="1"
+           data-crclX="0.75" data-crclY=".2" data-crclR="450" data-crclRs="140">
+        <div class="followCircle"><img  trdl="0.3s" style="width: 375px; " class="anime" src="img/logos/BuzzFeed.svg" alt="7eleven"></div>
+        <div class="textCenter">&nbsp;
+          <div class="floatingNumer leftBottom">
+            <p trdl="0.2s"  class="anime">To improve agility, BuzzFeed uses the Workday platform for training, goal setting and performance management.</p>
+          </div>
+        </div>
+      </div>
+      <!--=========Customer Experience===========-->
+      <div data-id="5" class="content" video="2"
+           data-crclX="0.5" data-crclY="0.5" data-crclR="450" data-crclRs="165">
+        <div class="textCenter">
+          <div class="anime regularTitle">     <img class="arrowLogo" src="img/logos/chart-icons.svg" alt=""> <br>Customer Experience</div>
+          <div trdl="0.2s" class="anime">72% of businesses cited improving the customer experience as their top priority. (Forrester)</div>
+        </div>
+      </div>
+      <!--=========Aware p1===========-->
+      <div data-id="6" class="content" video="2"
+           data-crclX="0.3" data-crclY=".2" data-crclR="450" data-crclRs="140">
+        <div class="textCenter">&nbsp;
+          <div class="floatingNumer leftTop">
+            <div class="number anime">4<span>%</span></div>
+            <p trdl="0.2s"  class="anime">of your market is actively buying.</p>
+          </div>
+          <div class="floatingNumer rightBottom">
+            <div class="number anime">40<span>%</span></div>
+            <p trdl="0.2s"  class="anime">are poised to begin. (Vorsight)</p>
+          </div>
+        </div>
+      </div>
+      <!--=========Aware p2===========-->
+      <div data-id="6" class="content" video="2"
+           data-crclX="0.3" data-crclY="0.2" data-crclR="450" data-crclRs="140">
+        <div class="followCircle"><img  trdl="0.3s" style="width: 125px; " class="anime" src="img/logos/rehring-logo.svg" alt="7eleven"></div>
+        <div class="textCenter">&nbsp;
+          <div class="floatingNumer rightBottom">
+            &nbsp; <br>
+            <p trdl="0.2s"  class="anime">Rehrig anticipated customer needs and developed an IoT trash can.</p>
+          </div>
+        </div>
+      </div>
+      <!--=========Satisfied p1===========-->
+      <div data-id="7" class="content" video="2"
+           data-crclX="0.3" data-crclY=".2" data-crclR="450" data-crclRs="140">
+        <div class="textCenter">&nbsp;
+          <div class="floatingNumer centerCenter">
+            <div class="number anime">12</div>
+            <p trdl="0.2s"  class="anime">positive experiences takes to make up for one unresolved negative experience. (Understanding Customers, Newell-Legner)</p>
+          </div>
+        </div>
+      </div>
+      <!--=========Satisfied p2===========-->
+      <div data-id="7" class="content" video="2"
+           data-crclX="0.3" data-crclY="0.2" data-crclR="450" data-crclRs="140">
+        <div class="followCircle"><img  trdl="0.3s" style="width: 125px; " class="anime" src="img/logos/Starbucks.svg" alt="Starbucks"></div>
+        <div class="textCenter">&nbsp;
+          <div class="floatingNumer centerCenter">
+            <div class="number anime">&nbsp;</div>
+            <p trdl="0.2s"  class="anime">The little green sticks that keep coffee in your cup were a user generated idea.</p>
+          </div>
+        </div>
+      </div>
+      <!--=========Amplified p1===========-->
+      <div data-id="8" class="content"
+           data-crclX="0.3" data-crclY="0.2" data-crclR="450" data-crclRs="140">
+        <div class="textCenter">&nbsp;
+          <div class="floatingNumer centerCenter">
+            <div class="number anime">92 <span>%</span></div>
+            <p trdl="0.2s"  class="anime">consumers believing recommendations from friends and family over all other forms of advertising. (Nielsen)</p>
+          </div>
+        </div>
+      </div>
+      <!--=========Amplified p2===========-->
+      <div data-id="8" class="content" video="2"
+           data-crclX="0.3" data-crclY="0.2" data-crclR="450" data-crclRs="140">
+        <div class="followCircle"><img  trdl="0.3s" style="width: 125px; " class="anime" src="img/logos/GeorgeTownLogo.svg" alt="Starbucks"></div>
+        <div class="textCenter">&nbsp;
+          <div class="floatingNumer centerCenter">
+            <div class="number anime"> &nbsp;</div>
+            <p trdl="0.2s"  class="anime">Using Salesforce, Georgetown’s “home on the hilltop” is open to students, faculty and alumni across the globe.</p>
+          </div>
+        </div>
+      </div>
+     </div>
+    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+    <!--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!-->
+  </div>
+  <script type="text/javascript" src="js/comon.js"></script>
+  <script type="text/javascript" src="js/circle.js"></script>
+  </body>
+</html>

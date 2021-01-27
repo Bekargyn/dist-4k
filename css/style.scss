@@ -1,0 +1,376 @@
+.hidden{
+  opacity: 0 !important;
+  margin-top: -25px;
+  transition: all 0.3s;
+}
+.dnone{
+  display: none;
+}
+body,html{
+  padding: 0;
+  margin: 0;
+  height:100vh;
+  width: 100vw;
+  overflow: hidden;
+  background: gray;
+  color: white;
+  font-family: 'MongolianBaiti';
+  font-size: 32px;
+  #mainBody{
+    //###############################
+    //Canvas Box
+    //###############################
+
+    #canvasBox{
+      position: absolute;
+      z-index:1;
+      width: 100vw;
+      height:100vh;
+    }
+
+    //###############################
+    //BoxShadow
+    //###############################
+    .shadow{
+      background-image: url(../img/shadow.png),url(../img/shadow1.png);
+      background-position: left top , right top ;
+      background-repeat: repeat-y, repeat-y;
+      position: absolute;
+      width: 100%;
+      height:100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    //###############################
+    //Video Slider Box
+    //###############################
+    #videoSlider{
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      .wrap{
+        position: relative;
+        height:100vh;
+        width: 100vw;
+        .videobg{
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: 9999;
+          min-width: 100%;
+          min-height: 100%;
+        }
+      }
+    }
+    //###############################
+    //Menu Box
+    //###############################
+    #menuBox{
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      z-index:100;
+
+      .buttonsContainer{
+        position: absolute;
+        bottom:50px;
+        left: 75%;
+      }
+      &.navLeft {
+        .buttonsContainer{
+          left: 25%;
+        }
+      }
+      &.navRight {
+        .buttonsContainer{
+          left: 75%;
+        }
+      }
+      .dots{
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 15px;
+        span{
+          display: inline-block;
+          width: 15px;
+          height: 15px;
+          margin-right: 15px;
+          background: white;
+          opacity:0.25;
+          border-radius: 50%;
+          &.active{
+            opacity: 1;
+          }
+        }
+      }
+      .upButton{
+        width: 25px;
+        height: 15px;
+        background: url(../img/logos/arrow-up.svg) no-repeat;
+        background-size: contain;
+        /*left: 75%;
+        bottom: 50px;*/
+        cursor: pointer;
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .nextButton{
+        position: absolute;
+        width: 100%;
+        height:100%;
+        //z-index: 10;
+      }
+      .scrollIcon{
+        /*border: 1px solid #fff;*/
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        bottom: 0;
+        z-index: 99;
+        left: 50%;
+        transform: translatex(-50%);
+
+        opacity: 0;
+        transition: 0.5s;
+        transition-timing-function: cubic-bezier(.16,.48,.09,1);
+        visibility: hidden;
+        span{
+          position: absolute;
+          display: block;
+          top: 15%;
+          left: 50%;
+          transform: translatex(-50%);
+          width: 1px;
+          height: 1px;
+          background-color: white;
+          /*border-radius: 50%;*/
+          background: #FFF;
+        }
+        &.scrollAnima{
+          span{
+            -webkit-animation: scrollAnima 2.2s infinite; /* Safari 4.0 - 8.0 */
+            animation: scrollAnima 2.2s infinite;
+          }
+        }
+        &.amateAppend{
+          visibility: visible;
+          transition: 1s;
+          -webkit-transition-delay: 3s !important;
+          -o-transition-delay: 3s !important;
+          -moz-transition-delay: 3s !important;
+          transition-delay: 3s !important;
+          opacity: 1;
+          transition-timing-function: cubic-bezier(.16,.48,.09,1);
+        }
+        &.hideThis{
+          opacity: 0 !important;
+        }
+      }
+
+      /*@-webkit-keyframes scrollAnima{
+          0%   {top: 15%; opacity: 0;}
+          20%  {top: 15%; opacity: 1;}
+          50%  {opacity: 1;}
+          100% {top: 65%; opacity: 0;}
+      }
+
+
+      @keyframes scrollAnima{
+          0%   {top: 15%; opacity: 0;}
+          20%  {top: 15%; opacity: 1;}
+          50%  {opacity: 1;}
+          100% {top: 65%; opacity: 0;}
+      }*/
+      @-webkit-keyframes scrollAnima{
+        0%   {height: 1px; opacity: 0;}
+
+        50%  {opacity: 1;}
+        100% {height: 60px;  opacity: 0;}
+      }
+
+
+      @keyframes scrollAnima{
+        0%   {height: 1px;  opacity: 0;}
+
+        50%  {opacity: 1;}
+        100% {height: 60px;  opacity: 0;}
+      }
+      nav{
+        position: absolute;
+        top: 50%;
+        left:0;
+        transform: translateY(-50%);
+        &:not(.active){
+          filter: blur(3px);
+        }
+        a{
+          display: block;
+          padding: 60px 200px;
+          position: relative;
+          transition: all 0.3s;
+          color: white;
+          text-decoration: none;
+          cursor: pointer;
+          font-family: 'BentonSans-Bold';
+          font-size: 24px;
+          opacity: 0.5;
+          letter-spacing: 4.2px;
+          &::after{
+            position: absolute;
+            width: 0px;
+            height: 3px;
+            background: white;
+            display: block;
+            left:0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: all 0.3s;
+            content: " ";
+          }
+          &.active{
+            opacity: 1;
+            &::after{
+              width: 100px;
+              transition: all 0.3s;
+            }
+          }
+        }
+        &.navRight{
+          left: auto;
+          right: 0;
+          a{
+            text-align: right;
+            &:after{
+              left: auto;
+              right: 0;
+            }
+          }
+        }
+      }
+    }
+
+    //###############################
+    //Content Box
+    //###############################
+    #contentSlider{
+      position: absolute;
+      width: 100%;
+      height:100%;
+      text-align: center;
+      font-family: 'BentonSans-Light';
+      font-size: 34px;
+      .content{
+        position: absolute;
+        width: 100%;
+        height:100%;
+        opacity: 0;
+        z-index: -1;
+        &.active{
+          opacity: 1;
+          z-index: 1;
+        }
+        .textCenter{
+          position: absolute;
+          top:50%;
+          left:50%;
+          transform: translate(-50%,-50%);
+        }
+        .anime{
+          transform: translateY(50px);
+          transition: all 0.3s;
+          opacity: 0;
+          &.active{
+            transform: translateY(0px);
+            opacity: 1;
+          }
+          &.out{
+            transform: translateY(-50px);
+            opacity: 0;
+          }
+        }
+        .arrowLogo{
+          width: 75px;
+          height:92px;
+        }
+        .mainLogo{
+          font-size: 118px;
+          font-family: 'MongolianBaiti';
+          letter-spacing: 30px;
+          white-space: nowrap;
+        }
+        .subLogo{
+          font-size: 26px;
+          text-transform: uppercase;
+          letter-spacing: 30px;
+        }
+        .subSlide{
+          position: absolute;
+          top:120%;
+          left: 0;
+          width: 100% ;
+        }
+        .regularTitle{
+          font-size: 105px;
+          letter-spacing: 0.65px;
+        }
+        .floatingNumer{
+          position: absolute;
+          text-align: left;
+          min-width: 767px;
+          .number{
+            font-size: 180px;
+            font-family: 'MongolianBaiti';
+            white-space: nowrap;
+            span{
+              display: inline-block;
+              font-size: 118px;
+              vertical-align: top;
+            }
+          }
+          p{
+            padding: 0;
+            margin: 0;
+            padding-left: 100px;
+          }
+          &.leftBottom{
+            top:25px;
+            left: -500px;
+          }
+          &.leftCenter{
+            top:50%;
+            transform: translatey(-50%);
+            left: -500px;
+          }
+          &.rightTop{
+            bottom:25px;
+            left: 0px;
+          }
+          &.leftTop{
+            bottom:25px;
+            left: -275px;
+          }
+          &.rightBottom{
+            top:25px;
+            left: 100px;
+          }
+          &.centerCenter{
+            top: -100px;
+            left: -100px;
+          }
+        }
+        .followCircle{
+          position: absolute;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+  }
+}

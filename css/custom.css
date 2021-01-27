@@ -1,0 +1,47 @@
+      body #mainBody #menuBox nav a, html #mainBody #menuBox nav a {
+
+
+
+        font-size: 34px;
+		  
+}
+
+
+      body #mainBody #contentSlider .content .regularTitle, html #mainBody #contentSlider .content .regularTitle {
+		  
+		  
+font-family: 'MongolianBaiti';
+		  
+ font-size: 125px;
+
+}
+
+
+      body #mainBody #menuBox .dots span, html #mainBody #menuBox .dots span {
+
+       
+
+        width: 25px;
+
+        height: 25px;
+
+        margin-right: 75px;
+ }
+
+
+    body #mainBody #menuBox .buttonsContainer, html #mainBody #menuBox .buttonsContainer {
+
+
+      bottom: 100px;
+
+ }
+
+
+
+    body #mainBody #menuBox .upButton, html #mainBody #menuBox .upButton {
+
+      width: 35px;
+
+      height: 25px;
+
+     }
